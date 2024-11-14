@@ -48,35 +48,37 @@ public class JavaFXApp extends Application {
      * @param i2 the second number to use in calculation
      * @return the end of men
      */
-    protected int computeDestroy (int i1, int i2) {
+    protected int computeDestroy (int i1, int i2) throws ArithmeticException{
         return (i1+i2)/0;
     }
 
     private void compute (String operator) {
 
-        int result;
+        int result = 0;
         int number1 = getNumberFromTextField (txtNumber1);
         int number2 = getNumberFromTextField (txtNumber2);
 
-        switch (operator) {
-            case PLUS:
-                result = computeAdd (number1, number2);
-                break;
-            case MULTIPLY:
-                result = computeMultiply (number1, number2);
-                break;
-            case DIVIDE:
-                result = computeDivide (number1, number2);
-                break;
-            case DESTROY:
-                result = computeDestroy (number1, number2);
-                break;
-            default:
-                result = 0;
+        try {
+            switch (operator) {
+                case PLUS:
+                    result = computeAdd (number1, number2);
+                    break;
+                case MULTIPLY:
+                    result = computeMultiply (number1, number2);
+                    break;
+                case DIVIDE:
+                    result = computeDivide (number1, number2);
+                    break;
+                case DESTROY:
+                    result = computeDestroy (number1, number2);
+                    break;
+                default:
+                    result = 0;
+            }
+        } finally {
+            txtResult.setText (String.valueOf (result));
+            if (operator.equals(DESTROY)) txtResult.setText ("The End is near");
         }
-
-        txtResult.setText (String.valueOf (result));
-        if (operator.equals(DESTROY)) txtResult.setText ("The End is near");
     }
 
     EventHandler<MouseEvent> mouseHandler = new EventHandler<MouseEvent> () {
