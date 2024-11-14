@@ -156,9 +156,9 @@ public class JavaFXApp extends Application {
          * en 1 resultaatveld toegevoegd.
          */
         addLabel ("Getal1", 161, 71, 10, 0);
-        txtNumber1 = addTextField ("Voer hier het eerste getal in...", true, 310, 181, 15);
+        txtNumber1 = addTextField ("Voer hier getal 1 in...", true, 310, 181, 15);
         addLabel ("Getal2", 161, 71, 10, 40);
-        txtNumber2 = addTextField ("Voer hier het tweede getal in...", true, 310, 181, 55);
+        txtNumber2 = addTextField ("Voer hier getal 2 in...", true, 310, 181, 55);
         addButton (PLUS, 160, 10, 105);
         addButton (MULTIPLY, 160, 170, 105);
         addButton (DIVIDE, 160, 330, 105);
