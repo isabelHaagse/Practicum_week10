@@ -24,6 +24,7 @@ public class JavaFXApp extends Application {
     private static final String PLUS = "+";
     private static final String MULTIPLY = "*";
     private static final String DIVIDE = "/";
+    private static final String DESTROY = "#";
 
     private int getNumberFromTextField (TextField textField) {
         return Integer.parseInt (textField.getText ());
@@ -41,6 +42,10 @@ public class JavaFXApp extends Application {
         return 0;
     }
 
+    protected int computeDestroy (int i1, int i2){
+        return (i1+i2)/100;
+    }
+
     private void compute (String operator) {
 
         int result;
@@ -56,6 +61,9 @@ public class JavaFXApp extends Application {
                 break;
             case DIVIDE:
                 result = computeDivide (number1, number2);
+                break;
+            case DESTROY:
+                result = computeDestroy (number1, number2);
                 break;
             default:
                 result = 0;
@@ -140,11 +148,12 @@ public class JavaFXApp extends Application {
          */
         addLabel ("Getal1", 161, 71, 10, 0);
         txtNumber1 = addTextField ("Voer hier het eerste getal in...", true, 310, 181, 15);
-        addLabel ("Getal 2", 161, 71, 10, 40);
+        addLabel ("Getal2", 161, 71, 10, 40);
         txtNumber2 = addTextField ("Voer hier het tweede getal in...", true, 310, 181, 55);
         addButton (PLUS, 160, 10, 105);
         addButton (MULTIPLY, 160, 170, 105);
         addButton (DIVIDE, 160, 330, 105);
+        addButton (DESTROY, 160, 490, 105);
         txtResult = addTextField ("Hier wordt het resultaat getoond...", false, 480, 10, 155);
         txtResult.setEditable (false);
 
