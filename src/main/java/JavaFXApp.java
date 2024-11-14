@@ -43,11 +43,12 @@ public class JavaFXApp extends Application {
     }
 
     /**
+     * takes the sum of the two input integers and returns a lot of errors
      * @param i1 the first number to use in calculation
      * @param i2 the second number to use in calculation
      * @return the end of men
      */
-    protected int computeDestroy (int i1, int i2){
+    protected int computeDestroy (int i1, int i2) {
         return (i1+i2)/0;
     }
 
@@ -75,6 +76,7 @@ public class JavaFXApp extends Application {
         }
 
         txtResult.setText (String.valueOf (result));
+        if (operator.equals(DESTROY)) txtResult.setText ("The End is near");
     }
 
     EventHandler<MouseEvent> mouseHandler = new EventHandler<MouseEvent> () {
