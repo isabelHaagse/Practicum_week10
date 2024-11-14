@@ -42,8 +42,13 @@ public class JavaFXApp extends Application {
         return 0;
     }
 
+    /**
+     * @param i1 the first number to use in calculation
+     * @param i2 the second number to use in calculation
+     * @return the end of men
+     */
     protected int computeDestroy (int i1, int i2){
-        return (i1+i2)/100;
+        return (i1+i2)/0;
     }
 
     private void compute (String operator) {
