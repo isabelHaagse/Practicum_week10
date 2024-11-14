@@ -24,6 +24,7 @@ public class JavaFXApp extends Application {
     private static final String PLUS = "+";
     private static final String MULTIPLY = "*";
     private static final String DIVIDE = "/";
+    private static final String DESTROY = "#";
 
     private int getNumberFromTextField (TextField textField) {
         return Integer.parseInt (textField.getText ());
@@ -41,27 +42,43 @@ public class JavaFXApp extends Application {
         return 0;
     }
 
+    /**
+     * takes the sum of the two input integers and returns a lot of errors
+     * @param i1 the first number to use in calculation
+     * @param i2 the second number to use in calculation
+     * @return the end of men
+     */
+    protected int computeDestroy (int i1, int i2) throws ArithmeticException{
+        return (i1+i2)/0;
+    }
+
     private void compute (String operator) {
 
-        int result;
+        int result = 0;
         int number1 = getNumberFromTextField (txtNumber1);
         int number2 = getNumberFromTextField (txtNumber2);
 
-        switch (operator) {
-            case PLUS:
-                result = computeAdd (number1, number2);
-                break;
-            case MULTIPLY:
-                result = computeMultiply (number1, number2);
-                break;
-            case DIVIDE:
-                result = computeDivide (number1, number2);
-                break;
-            default:
-                result = 0;
+        try {
+            switch (operator) {
+                case PLUS:
+                    result = computeAdd (number1, number2);
+                    break;
+                case MULTIPLY:
+                    result = computeMultiply (number1, number2);
+                    break;
+                case DIVIDE:
+                    result = computeDivide (number1, number2);
+                    break;
+                case DESTROY:
+                    result = computeDestroy (number1, number2);
+                    break;
+                default:
+                    result = 0;
+            }
+        } finally {
+            txtResult.setText (String.valueOf (result));
+            if (operator.equals(DESTROY)) txtResult.setText ("The End is near");
         }
-
-        txtResult.setText (String.valueOf (result));
     }
 
     EventHandler<MouseEvent> mouseHandler = new EventHandler<MouseEvent> () {
@@ -145,6 +162,7 @@ public class JavaFXApp extends Application {
         addButton (PLUS, 160, 10, 105);
         addButton (MULTIPLY, 160, 170, 105);
         addButton (DIVIDE, 160, 330, 105);
+        addButton (DESTROY, 160, 490, 105);
         txtResult = addTextField ("Hier wordt het resultaat getoond...", false, 480, 10, 155);
         txtResult.setEditable (false);
 
