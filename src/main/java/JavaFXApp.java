@@ -159,10 +159,10 @@ public class JavaFXApp extends Application {
         txtNumber1 = addTextField ("Voer hier getal 1 in...", true, 310, 181, 15);
         addLabel ("Getal2", 161, 71, 10, 40);
         txtNumber2 = addTextField ("Voer hier getal 2 in...", true, 310, 181, 55);
-        addButton (PLUS, 160, 10, 105);
-        addButton (MULTIPLY, 160, 170, 105);
-        addButton (DIVIDE, 160, 330, 105);
-        addButton (DESTROY, 160, 490, 105);
+        addButton (PLUS, 120, 10, 105);
+        addButton (MULTIPLY, 120, 130, 105);
+        addButton (DIVIDE, 120, 250, 105);
+        addButton (DESTROY, 120, 370, 105);
         txtResult = addTextField ("Hier wordt het resultaat getoond...", false, 480, 10, 155);
         txtResult.setEditable (false);
 
